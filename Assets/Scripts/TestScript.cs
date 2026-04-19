@@ -96,21 +96,25 @@ public class TestScript : MonoBehaviour
         var totalReward = 0;
         for (int i = 0; i < _enemiesInWave.Length; i++)
         {
-            if (_enemiesInWave[i] < 2)
+            if (_enemiesInWave[i] < 5)
             {
                 Debug.Log("Легкая волна, врагов:" + _enemiesInWave[i]);
+            }
+            else if (_enemiesInWave[i] < 10)
+            {
+                Debug.Log("Средняя волна волна, врагов:" + _enemiesInWave[i]);
+            }
+            else
+            {
+                Debug.Log("Сложная волна волна, врагов:" + _enemiesInWave[i]);
             }
             totalEnemies += _enemiesInWave[i];
             totalReward += _waveReward[i];
         }
 
-        if (totalEnemies <= 5)
+        if (totalEnemies < 30)
         {
-            Debug.Log("Лугкий уровень, врагов:" + totalEnemies);
-        }
-        else if (totalEnemies <= 10)
-        {
-            Debug.Log("Средний уровень, врагов:" + totalEnemies);
+            Debug.Log("Легкий уровень, врагов:" + totalEnemies);
         }
         else
         {
