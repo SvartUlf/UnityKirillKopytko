@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using static UnityEditor.Progress;
@@ -9,7 +10,7 @@ public class TestScript : MonoBehaviour
 {
     private int[] _userScore = new int[5] { 10, 20, 30, 40, 50 };
     private int[] _enemyHealth = new int[5] { 40, 20, 60, 100, 80 };
-    private List<int> _itemCost = new List<int> { 10,20,30,10,80,90};
+    private int[] _itemCost = new int[5] { 10,20,30,10,80};
     private int[] _enemiesInWave = new int[5] { 2,3,4,5,6 };
     private int[] _waveReward = new int[5] { 20,30,40,50,60 };
     private int[] _unsorted = new int[5] { 1, 7, 2, 4, 3 };
