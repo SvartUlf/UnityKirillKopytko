@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4a3849023dc93244bf29b8449a74aab, type: 3}
+  m_Name: ObjectBuildPalette
+  m_EditorClassIdentifier: Assembly-CSharp::Game.BuildSystem.BuildPallete
+  <PalleteName>k__BackingField: Objects
+  <Tiles>k__BackingField:
+  - {fileID: 11400000, guid: 3eb2eb57905c1334882904de0a6d78a7, type: 2}
+  - {fileID: 11400000, guid: 5e6817b07d386564c8d932a07a5c0ea6, type: 2}
+  - {fileID: 11400000, guid: 0f0ec495bf12fb747a3031f4898d9e4e, type: 2}
+  - {fileID: 11400000, guid: 9cc8eb25804375c48bc4704d408606f9, type: 2}
+  - {fileID: 11400000, guid: ab92f8e7130960f45a18cf5865e70cec, type: 2}
+  - {fileID: 11400000, guid: a7ef2b4245997784abb7444cac03234b, type: 2}
+  - {fileID: 11400000, guid: a96797ff76271114785ad3ad13f579b4, type: 2}
+  - {fileID: 11400000, guid: d32aad20204371d42965a6eb9a26bbe7, type: 2}
