@@ -285,7 +285,6 @@ GameObject:
   - component: {fileID: 641971477}
   - component: {fileID: 641971480}
   - component: {fileID: 641971479}
-  - component: {fileID: 641971478}
   - component: {fileID: 641971481}
   m_Layer: 5
   m_Name: InventoryPanel
@@ -313,29 +312,6 @@ RectTransform:
   m_AnchoredPosition: {x: 451, y: 1}
   m_SizeDelta: {x: -1002, y: -82}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &641971478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 641971476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c6eca1b088b23d4e9ebba9e46174c78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Inventory.DisplayInventory
-  InventoryPrefab: {fileID: 8046721783881278318, guid: f393bf341dfff9341a2ab948b9b2cfab, type: 3}
-  Inventory: {fileID: 11400000, guid: b6ee95a81eb30fc49a9a39ada6170967, type: 2}
-  X_Start: -240
-  Y_Start: 340
-  X_End: 0
-  Y_End: 0
-  X_Space_Between_Items: 120
-  Y_Space_Between_Items: 120
-  Number_Of_Collumns: 5
-  _hoverItemSize: {x: 50, y: 50}
-  _camera: {fileID: 2009336665}
 --- !u!114 &641971479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,6 +480,64 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.23705, y: -1.36808, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &924015789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 924015791}
+  - component: {fileID: 924015790}
+  m_Layer: 0
+  m_Name: InventoryManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &924015790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924015789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6eca1b088b23d4e9ebba9e46174c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Inventory.DisplayInventory
+  InventoryPrefab: {fileID: 8046721783881278318, guid: f393bf341dfff9341a2ab948b9b2cfab, type: 3}
+  Inventory: {fileID: 11400000, guid: b6ee95a81eb30fc49a9a39ada6170967, type: 2}
+  X_Start: -240
+  Y_Start: 340
+  X_End: 0
+  Y_End: 0
+  X_Space_Between_Items: 120
+  Y_Space_Between_Items: 120
+  Number_Of_Collumns: 5
+  _hoverItemSize: {x: 100, y: 100}
+  _camera: {fileID: 2009336665}
+  _rootPanel: {fileID: 641971476}
+  _container: {fileID: 641971476}
+  _toggleInventory: 105
+--- !u!4 &924015791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924015789}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.05468, y: 0.10993, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16113,3 +16147,4 @@ SceneRoots:
   - {fileID: 2071232848}
   - {fileID: 597991280}
   - {fileID: 807848887}
+  - {fileID: 924015791}

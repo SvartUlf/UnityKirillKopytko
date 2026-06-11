@@ -34,6 +34,7 @@ namespace Game.Inventory
         public void Start()
         {
             CreateSlots();
+            _rootPanel.SetActive(false);
         }
 
         private void Update()
@@ -78,7 +79,7 @@ namespace Game.Inventory
             _itemsDisplay = new Dictionary<GameObject, InventorySlot>();
             for (int i = 0; i < Inventory.Container.Items.Length; i++)
             {
-                var obj = Instantiate(InventoryPrefab, Vector3.zero, Quaternion.identity, transform);
+                var obj = Instantiate(InventoryPrefab, Vector3.zero, Quaternion.identity, _container.transform);
                 //obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
                 AddEvent(obj, EventTriggerType.PointerEnter, delegate { OnEnter(obj); });
                 AddEvent(obj, EventTriggerType.PointerExit, delegate { OnExit(obj); });
@@ -96,7 +97,7 @@ namespace Game.Inventory
             {
                 var mousePos = Input.mousePosition;
                 var worldPos = _camera.ScreenToWorldPoint(mousePos);
-                var localPos = transform.InverseTransformPoint(worldPos);
+                var localPos = _container.transform.InverseTransformPoint(worldPos);
                 localPos.z = 0;
 
                 _mouseItem.Obj.GetComponent<RectTransform>().localPosition = localPos;
@@ -105,14 +106,14 @@ namespace Game.Inventory
         private void OnDragStart(GameObject obj)
         {
             _tempMouseObject = new GameObject();
-            _tempMouseObject.transform.SetParent(transform, false);
+            _tempMouseObject.transform.SetParent(_container.transform, false);
             var rt = _tempMouseObject.AddComponent<RectTransform>(); 
             rt.anchorMin = rt.anchorMax = new Vector2(0f, 1f);
             rt.sizeDelta = _hoverItemSize;
             rt.localScale = Vector3.one;
             var mousePos = Input.mousePosition;
             var worldPos = _camera.ScreenToWorldPoint(mousePos);
-            var localPos = transform.InverseTransformPoint(worldPos);
+            var localPos = _container.transform.InverseTransformPoint(worldPos);
             localPos.z = 0;
             rt.localPosition = localPos;
             if (_itemsDisplay[obj].Id >= 0)
