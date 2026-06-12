@@ -14,7 +14,6 @@ namespace Game.Inventory
 
         public void OnBeforeSerialize()
         {
-            throw new System.NotImplementedException();
         }
     }
 }

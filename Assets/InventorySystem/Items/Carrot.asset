@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc622534c377d6499cd31a9e68ce050, type: 3}
+  m_Name: Carrot
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Inventory.FoodItem
+  Id: 2
+  Name: Carrot
+  UiDisplay: {fileID: -8037128599670238717, guid: 3083a1954146b6f449f93c481c33d6ae, type: 3}
+  Description: Fresh Carrot
+  Type: 0
+  ItemAttributesConfig: []

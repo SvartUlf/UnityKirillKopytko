@@ -23,13 +23,9 @@ namespace Game.Inventory
         [SerializeField] private GameObject _rootPanel;
         [SerializeField] private GameObject _container;
 
-        [Header("Settings")]
-        [SerializeField] private KeyCode _toggleInventory = KeyCode.I;
-
         private Dictionary<GameObject, InventorySlot> _itemsDisplay = new Dictionary<GameObject, InventorySlot>();
         private MouseItem _mouseItem = new MouseItem();
         private GameObject _tempMouseObject;
-        private bool _isInventoryOpen = false;
 
         public void Start()
         {
@@ -37,40 +33,28 @@ namespace Game.Inventory
             _rootPanel.SetActive(false);
         }
 
-        private void Update()
-        {
-            HandleInventoryToggle();
-        }
         public void LateUpdate()
         {
             UpdateSlots();
         }
 
-        private void HandleInventoryToggle()
-        {
-            if (!Input.GetKeyDown(_toggleInventory))
-            {
-                return;
-            }
-
-            _isInventoryOpen = !_isInventoryOpen;
-            _rootPanel.SetActive(_isInventoryOpen);
-        }
         private void UpdateSlots()
         {
             foreach (KeyValuePair<GameObject, InventorySlot> slot in _itemsDisplay)
             {
                 if (slot.Value.Id >= 0)
                 {
-                    slot.Key.transform.GetChild(1).GetComponentInChildren<Image>().sprite = Inventory.Database.GetItem[slot.Value.Item.Id].UiDisplay;
-                    slot.Key.transform.GetChild(1).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
+                    slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = Inventory.Database.GetItem[slot.Value.Item.Id].UiDisplay;
+                    slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
                     slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = slot.Value.Amount == 1 ? "" : slot.Value.Amount.ToString();
+                    slot.Key.transform.Find("AmountImg").gameObject.SetActive(slot.Value.Amount == 1 ? false : true);
                 }
                 else
                 {
-                    slot.Key.transform.GetChild(1).GetComponentInChildren<Image>().sprite = null;
-                    slot.Key.transform.GetChild(1).GetComponentInChildren<Image>().color = new Color(0, 0, 0, 0);
+                    slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = null;
+                    slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(0, 0, 0, 0);
                     slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = "";
+                    slot.Key.transform.Find("AmountImg").gameObject.SetActive(false);
                 }
             }
         }
@@ -128,13 +112,24 @@ namespace Game.Inventory
 
         private void OnDragEnd(GameObject obj)
         {
-            if (_mouseItem.HoverObj)
+            if (Input.GetKey(KeyCode.LeftShift))
             {
-                Inventory.MoveItem(_itemsDisplay[obj], _itemsDisplay[_mouseItem.HoverObj]);
+                if (_mouseItem.HoverObj)
+                {
+                    Inventory.SplitItem(_itemsDisplay[obj], _itemsDisplay[_mouseItem.HoverObj]);
+                }
             }
             else
             {
-                Inventory.RemoveItem(_itemsDisplay[obj].Item);
+                if (_mouseItem.HoverObj)
+                {
+                    Inventory.MoveItem(_itemsDisplay[obj], _itemsDisplay[_mouseItem.HoverObj]);
+                }
+                else
+                {
+                    Inventory.RemoveItem(_itemsDisplay[obj].Item);
+                }
+                
             }
             if (_tempMouseObject)
             {

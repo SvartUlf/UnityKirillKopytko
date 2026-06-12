@@ -33,9 +33,35 @@ namespace Game.Inventory {
 
         internal void MoveItem(InventorySlot item1, InventorySlot item2)
         {
-            InventorySlot tempItem = new InventorySlot(item2.Id, item2.Item, item2.Amount);
-            item2.UpdateSlot(item1.Id, item1.Item, item1.Amount);
-            item1.UpdateSlot(tempItem.Id, tempItem.Item, tempItem.Amount);
+            if (item1.Id != item2.Id)
+            {
+                InventorySlot tempItem = new InventorySlot(item2.Id, item2.Item, item2.Amount);
+                item2.UpdateSlot(item1.Id, item1.Item, item1.Amount);
+                item1.UpdateSlot(tempItem.Id, tempItem.Item, tempItem.Amount);
+            }
+            else
+            {
+                item2.AddAmount(item1.Amount);
+                item1.UpdateSlot(-1, null, 0);
+            }
+        }
+        internal void SplitItem(InventorySlot item1, InventorySlot item2)
+        {
+            if ((item1.Id == item2.Id || item2.Id < 0) && item1.Amount > 1)
+            {
+                InventorySlot tempItem = new InventorySlot(item2.Id, item2.Item, item2.Amount);
+                int amount1 = item1.Amount;
+                int amount2 = item2.Amount;
+                int splitAmount = amount1 / 2;
+                amount1 -= splitAmount;
+                amount2 += splitAmount;
+                item1.Amount = amount1;
+                tempItem.Amount = amount2;
+                tempItem.Id = item1.Id;
+                tempItem.Item = item1.Item;
+                item2.UpdateSlot(item1.Id, item1.Item, item1.Amount);
+                item1.UpdateSlot(tempItem.Id, tempItem.Item, tempItem.Amount);
+            }
         }
 
         private void SetEmptySlot(Item item, int amount)

@@ -15,42 +15,42 @@ MonoBehaviour:
   Database: {fileID: 11400000, guid: 2c22d870eca8ebd47b16308abbe2b137, type: 2}
   Container:
     Items:
-    - Id: -1
+    - Id: 0
       Item:
         Id: 0
         Name: 
         ItemAttributesConfig: []
-      Amount: 0
-    - Id: -1
-      Item:
-        Id: 0
-        Name: 
-        ItemAttributesConfig: []
-      Amount: 0
-    - Id: -1
-      Item:
-        Id: 0
-        Name: 
-        ItemAttributesConfig: []
-      Amount: 0
-    - Id: -1
-      Item:
-        Id: 0
-        Name: 
-        ItemAttributesConfig: []
-      Amount: 0
-    - Id: -1
-      Item:
-        Id: 0
-        Name: 
-        ItemAttributesConfig: []
-      Amount: 0
+      Amount: 1
     - Id: 1
       Item:
         Id: 1
-        Name: Banana
+        Name: 
+        ItemAttributesConfig: []
+      Amount: 5
+    - Id: 4
+      Item:
+        Id: 4
+        Name: 
         ItemAttributesConfig: []
       Amount: 1
+    - Id: 2
+      Item:
+        Id: 2
+        Name: 
+        ItemAttributesConfig: []
+      Amount: 2
+    - Id: 3
+      Item:
+        Id: 3
+        Name: 
+        ItemAttributesConfig: []
+      Amount: 3
+    - Id: -1
+      Item:
+        Id: 0
+        Name: 
+        ItemAttributesConfig: []
+      Amount: 0
     - Id: -1
       Item:
         Id: 0
